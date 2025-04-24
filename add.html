@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Event</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="calendar.html" class="nav-link">View Calendar</a>
+      <a href="archive.html" class="nav-link">Archived Events</a>
+    </nav>
+    <h1 class="page-title">Add New Event</h1>
+    <div class="form-card">
+      <input type="text" id="user" placeholder="Your name" />
+      <input type="text" id="title" placeholder="Event title" />
+      <input type="date" id="date" />
+      <input type="time" id="time" />
+      <input type="text" id="location" placeholder="Location" />
+      <input type="url" id="link" placeholder="Link (optional)" />
+      <input type="text" id="contact" placeholder="Contact info" />
+      <textarea id="description" placeholder="Details"></textarea>
+      <button class="btn-glow" onclick="addEvent()">➕ Add Event</button>
+    </div>
+  </div>
+</body>
+</html>
