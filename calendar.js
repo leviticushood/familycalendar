@@ -14,15 +14,17 @@ function loadEvents() {
     const row = document.createElement('tr');
     row.innerHTML = `
       <td>${event.title}</td>
-      <td><span class="tooltip">${event.date}<div class="tooltip-text">
-        <strong>Location:</strong> ${event.location}<br>
-        <strong>Link:</strong> <a href='${event.link}' target='_blank'>Link</a><br>
-        <strong>Contact:</strong> ${event.contact}<br>
-        <strong>Description:</strong> ${event.description}<br>
-        <strong>User:</strong> ${event.user}
-      </div></span></td>
+      <td><span class="tooltip">${event.date}
+        <div class="tooltip-text">
+          <strong>Location:</strong> ${event.location}<br>
+          <strong>Link:</strong> <a href="${event.link}" target="_blank">Link</a><br>
+          <strong>Contact:</strong> ${event.contact}<br>
+          <strong>Description:</strong> ${event.description}<br>
+          <strong>User:</strong> ${event.user}
+        </div>
+      </span></td>
       <td>${event.time}</td>
-      <td><button onclick='confirmDelete(${index})'>🗑️</button></td>
+      <td><button onclick="confirmDelete(${index})">🗑️</button></td>
     `;
     tbody.appendChild(row);
 
@@ -34,13 +36,16 @@ function loadEvents() {
 }
 
 function confirmDelete(index) {
-  const allEvents = JSON.parse(localStorage.getItem('events') || '[]');
-  const today = new Date().toISOString().split('T')[0];
-  const filteredEvents = allEvents.filter(event => event.date >= today);
   if (confirm("Are you sure you want to delete this event?")) {
-    const originalIndex = allEvents.findIndex(event => event.date >= today && allEvents.indexOf(event) === index);
-    allEvents.splice(originalIndex, 1);
-    localStorage.setItem('events', JSON.stringify(allEvents));
+    const events = JSON.parse(localStorage.getItem('events') || '[]');
+    const today = new Date().toISOString().split('T')[0];
+    const upcomingEvents = events.filter(event => event.date >= today);
+    const toDelete = upcomingEvents[index];
+    const actualIndex = events.findIndex(e =>
+      e.title === toDelete.title && e.date === toDelete.date && e.time === toDelete.time
+    );
+    events.splice(actualIndex, 1);
+    localStorage.setItem('events', JSON.stringify(events));
     loadEvents();
   }
 }
