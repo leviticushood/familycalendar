@@ -1,5 +1,8 @@
 function loadEvents() {
-  const events = JSON.parse(localStorage.getItem('events') || '[]');
+  const allEvents = JSON.parse(localStorage.getItem('events') || '[]');
+  const today = new Date().toISOString().split('T')[0];
+  const events = allEvents.filter(event => event.date >= today);
+
   const tbody = document.querySelector('#eventTable tbody');
   const grid = document.getElementById('calendarView');
   tbody.innerHTML = '';
@@ -8,7 +11,6 @@ function loadEvents() {
   events.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   events.forEach((event, index) => {
-    // List view
     const row = document.createElement('tr');
     row.innerHTML = `
       <td>${event.title}</td>
@@ -24,7 +26,6 @@ function loadEvents() {
     `;
     tbody.appendChild(row);
 
-    // Calendar view
     const div = document.createElement('div');
     div.className = 'calendar-card';
     div.innerHTML = `<strong>${event.title}</strong><br>${event.date} at ${event.time}`;
@@ -33,10 +34,13 @@ function loadEvents() {
 }
 
 function confirmDelete(index) {
+  const allEvents = JSON.parse(localStorage.getItem('events') || '[]');
+  const today = new Date().toISOString().split('T')[0];
+  const filteredEvents = allEvents.filter(event => event.date >= today);
   if (confirm("Are you sure you want to delete this event?")) {
-    const events = JSON.parse(localStorage.getItem('events') || '[]');
-    events.splice(index, 1);
-    localStorage.setItem('events', JSON.stringify(events));
+    const originalIndex = allEvents.findIndex(event => event.date >= today && allEvents.indexOf(event) === index);
+    allEvents.splice(originalIndex, 1);
+    localStorage.setItem('events', JSON.stringify(allEvents));
     loadEvents();
   }
 }
