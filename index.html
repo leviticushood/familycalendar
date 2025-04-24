@@ -1,31 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hood Family Calendar</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #00bfff, #1e90ff);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .hero {
+      background: url('hoods.jpg') center/cover no-repeat;
+      height: 40vh;
+      width: 100%;
+      border-bottom: 5px solid white;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .btn-link {
+      background-color: white;
+      color: #1e90ff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-link:hover {
+      background-color: #e0f7ff;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <nav class="nav-bar">
-      <a href="index.html" class="nav-link">Add Event</a>
-      <a href="calendar.html" class="nav-link">View Calendar</a>
-      <a href="archive.html" class="nav-link">Archived Events</a>
-    </nav>
-    <h1 class="page-title">Hood Family Calendar: Add New Event</h1>
-    <div class="form-card">
-      <input type="text" id="user" placeholder="Your name">
-      <input type="text" id="title" placeholder="Event title">
-      <input type="date" id="date">
-      <input type="time" id="time">
-      <input type="text" id="location" placeholder="Location">
-      <input type="url" id="link" placeholder="Link (optional)">
-      <input type="text" id="contact" placeholder="Contact info">
-      <textarea id="description" placeholder="Details"></textarea>
-      <button class="btn-glow" onclick="addEvent()">➕ Add Event</button>
-    </div>
+  <div class="hero"></div>
+  <h1>Welcome to the Hood Family Calendar</h1>
+  <div class="btn-group">
+    <a href="add.html" class="btn-link">Add New Event</a>
+    <a href="calendar.html" class="btn-link">View Calendar</a>
+    <a href="archive.html" class="btn-link">Archived Events</a>
   </div>
 </body>
 </html>
