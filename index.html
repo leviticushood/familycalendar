@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Family Calendar</title>
+  <title>Hood Family Calendar</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Family Calendar</h1>
+    <nav>
+      <a href="index.html">Add Event</a>
+      <a href="calendar.html">View Calendar</a>
+    </nav>
+    <h1>Hood Family Calendar: Add New Event</h1>
     <div class="form-card">
-      <h2>Add New Event</h2>
       <input type="text" id="user" placeholder="Your name">
       <input type="text" id="title" placeholder="Event title">
       <input type="date" id="date">
@@ -22,41 +25,6 @@
       <textarea id="description" placeholder="Details"></textarea>
       <button onclick="addEvent()">Add Event</button>
     </div>
-    <div id="events" class="events-list"></div>
   </div>
-
-  <script>
-    const eventsContainer = document.getElementById('events');
-
-    function addEvent() {
-      const user = document.getElementById('user').value;
-      const title = document.getElementById('title').value;
-      const date = document.getElementById('date').value;
-      const time = document.getElementById('time').value;
-      const location = document.getElementById('location').value;
-      const link = document.getElementById('link').value;
-      const contact = document.getElementById('contact').value;
-      const description = document.getElementById('description').value;
-
-      if (!title || !date) return;
-
-      const eventHTML = `
-        <div class="event-card fade-in">
-          <h3>${title}</h3>
-          <p><strong>Date:</strong> ${date}</p>
-          <p><strong>Time:</strong> ${time}</p>
-          <p><strong>Location:</strong> ${location}</p>
-          <p><strong>Link:</strong> <a href="${link}" target="_blank">${link}</a></p>
-          <p><strong>Contact:</strong> ${contact}</p>
-          <p><strong>Added by:</strong> <span class="user-name">${user}</span></p>
-          <p>${description}</p>
-        </div>
-      `;
-
-      eventsContainer.innerHTML += eventHTML;
-
-      document.querySelectorAll('.form-card input, .form-card textarea').forEach(el => el.value = '');
-    }
-  </script>
 </body>
 </html>
