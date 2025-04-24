@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Add New Event</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
   <style>
     .success-message {
       background-color: #28a745;
@@ -41,41 +40,4 @@
   </div>
 
   <!-- Heavenly Sound -->
-  <audio id="hoverSound" loop>
-    <source src="ahhh.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script>
-    // Hover sound logic
-    const hoverSound = document.getElementById('hoverSound');
-    const addButton = document.getElementById('addBtn');
-
-    addButton.addEventListener('mouseenter', () => {
-      hoverSound.currentTime = 0;
-      hoverSound.play();
-    });
-
-    addButton.addEventListener('mouseleave', () => {
-      hoverSound.pause();
-    });
-
-    // Add event logic
-    function addEvent() {
-      const event = {
-        user: document.getElementById('user').value,
-        title: document.getElementById('title').value,
-        date: document.getElementById('date').value,
-        time: document.getElementById('time').value,
-        location: document.getElementById('location').value,
-        link: document.getElementById('link').value,
-        contact: document.getElementById('contact').value,
-        description: document.getElementById('description').value
-      };
-
-      if (!event.title || !event.date) {
-        alert("Please enter at least a title and date.");
-        return;
-      }
-
-      const events = JSON.parse(localStorage.getItem('events') || '[]');
-      events
+  <audio id="hoverSound
