@@ -1,0 +1,145 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #101820;
+  color: #f0f8ff;
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+.page-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #87ceeb;
+  margin-bottom: 1.5rem;
+}
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.nav-link {
+  color: #87ceeb;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.nav-link:hover {
+  color: #ffffff;
+}
+.form-card {
+  background: #1a1f2b;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(135, 206, 235, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+input, textarea {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: #2a2f3b;
+  color: white;
+}
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.btn-glow {
+  background: linear-gradient(to right, #00bfff, #1e90ff);
+  color: white;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(135, 206, 250, 0.6);
+  transition: all 0.3s ease;
+}
+.btn-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(135, 206, 250, 0.9);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1f2b;
+}
+th, td {
+  border: 1px solid #444;
+  padding: 0.75rem;
+  text-align: left;
+}
+th {
+  background-color: #292e3b;
+  color: #87ceeb;
+}
+td a {
+  color: #87cefa;
+  text-decoration: underline;
+}
+.user-name {
+  color: #87ceeb;
+  font-weight: bold;
+}
+tr:hover {
+  background-color: #2c2f3f;
+}
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+.tooltip-text {
+  display: none;
+  position: absolute;
+  background: #1e293b;
+  color: white;
+  padding: 10px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  width: 250px;
+  top: 120%;
+  left: 0;
+  z-index: 10;
+}
+.tooltip:hover .tooltip-text {
+  display: block;
+}
+.toggle-view {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.toggle-view button {
+  margin: 0 5px;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.toggle-view button:hover {
+  background-color: #1e90ff;
+}
+#calendarView {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.calendar-card {
+  background: #1e293b;
+  border: 1px solid #87cefa;
+  border-radius: 1rem;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
