@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Calendar</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="calendar.js"></script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-link">Add Event</a>
+      <a href="calendar.html" class="nav-link">View Calendar</a>
+      <a href="archive.html" class="nav-link">Archived Events</a>
+    </nav>
+    <h1 class="page-title">Hood Family Calendar</h1>
+    <div class="toggle-view">
+      <button onclick="toggleView('list')">List View</button>
+      <button onclick="toggleView('grid')">Calendar View</button>
+    </div>
+    <div id="calendarView" style="display:none;"></div>
+    <table id="eventTable">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</body>
+</html>
